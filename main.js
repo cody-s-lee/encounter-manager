@@ -65,14 +65,19 @@ function createCharacterForGroup(group) {
     var modalForm = document.getElementById("modal-form")
     var nameInput = document.getElementById("modal-name-input")
     nameInput.value = ""
+    var hpInput = document.getElementById("modal-hp-input")
+    var initInput = document.getElementById("modal-init-input")
 
     // Prep form submission
     modalForm.onsubmit = function(event) {
         var name = nameInput.value
+        var hp = parseInt(hpInput.value) || 0
+        var init = initInput.value
+
         name = name.trim()
         if (!(name in chars)) {
             if (name != "") {
-                addCharacterToGroup(group, name)
+                addCharacterToGroup(group, name, hp, init)
             }
         }
         modal.style.display = "none"
@@ -145,14 +150,14 @@ function createCharacter(team, name) {
     return chars[name];
 }
 
-function addCharacterToGroup(group, name) {    
+function addCharacterToGroup(group, name, hp, init) {    
     createCharacter(teams.PARTY, name)
         var charNode = document.createElement("div");
         charNode.id = name;        
         charNode.className="char"
         charNode.draggable = true
         charNode.ondragstart = drag
-        charNode.textContent = name
+        charNode.textContent = name + ", " + hp + ", " + init
 
         group.lastChild.before(charNode)
 }
