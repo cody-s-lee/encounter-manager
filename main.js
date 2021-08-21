@@ -65,7 +65,6 @@ function createCharacterForGroup(group) {
     var modalForm = document.getElementById("modal-form")
     var nameInput = document.getElementById("modal-name-input")
     nameInput.value = ""
-    nameInput.focus()
 
     // Prep form submission
     modalForm.onsubmit = function(event) {
@@ -98,6 +97,7 @@ function createCharacterForGroup(group) {
 
     // Show modal
     modal.style.display = "block";
+    nameInput.focus()
 }
 
 function noop(event) {
