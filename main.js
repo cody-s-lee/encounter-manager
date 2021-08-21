@@ -1,3 +1,5 @@
+const chars = {}
+
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -70,6 +72,7 @@ function createCharacterForGroup(group) {
         name = name.trim()
         if (!(name in chars)) {
             if (name != "") {
+                chars[name] = name
                 addCharacterToGroup(group, name, hp, init)
             }
         }
