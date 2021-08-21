@@ -1,10 +1,3 @@
-const teams = {
-    PARTY: "party",
-    ENEMIES: "enemies"
-}
-
-const chars = {};
-
 function allowDrop(ev) {
     ev.preventDefault();
 }
@@ -142,24 +135,9 @@ function addToGroup(ev) {
     cleanup(oldGroup);
 }
 
-function createCharacter(team, name) {
-    chars[name] = {
-        team: team
-    }
-
-    return chars[name];
-}
-
 function addCharacterToGroup(group, name, hp, init) {    
-    createCharacter(teams.PARTY, name)
-        var charNode = document.createElement("div");
-        charNode.id = name;        
-        charNode.className="char"
-        charNode.draggable = true
-        charNode.ondragstart = drag
-        charNode.textContent = name + ", " + hp + ", " + init
-
-        group.lastChild.before(charNode)
+    var charNode = charToDiv(name, hp, init)
+    group.lastChild.before(charNode)
 }
 
 // Initialize the columns
@@ -170,3 +148,21 @@ function addCharacterToGroup(group, name, hp, init) {
         createAddGroupNode(c);
     }
 })();
+
+function charToDiv(name, hp, init) {
+    var charNode = document.createElement("div")
+    charNode.id = name;
+    charNode.className = "char"
+    charNode.draggable = true
+    charNode.ondragstart = drag
+    charNode.textContent = "(" + init + ") " + name
+    charNode.data["hp"] = hp
+
+    var hpNode = document.createElement("div")
+    hpNode.id = name + "-hp"
+    hpNode.className = "hp"
+    hpNode.innerText = charNode.data["hp"]
+    charNode.appendChild(hpNode)
+
+    return charNode
+}
