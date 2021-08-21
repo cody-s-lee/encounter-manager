@@ -62,25 +62,13 @@ function createGroupWithCharacter(column) {
 
 function createCharacterForGroup(group) {
     var modal = document.getElementById("charname-modal")
-    modal.style.display="block";
-
+    var modalForm = document.getElementById("modal-form")
     var nameInput = document.getElementById("modal-name-input")
     nameInput.value = ""
     nameInput.focus()
 
-    document.getElementById("modal-close").onclick = function() {
-        modal.style.display = "none"
-        cleanup(group)
-    }
-    
-    window.onclick = function(event) {
-    if (event.target == modal) {
-            modal.style.display = "none";
-            cleanup(group)
-        }
-    }
-      
-    document.getElementById("modal-ok").onclick = function(event) {
+    // Prep form submission
+    modalForm.onsubmit = function(event) {
         var name = nameInput.value
         name = name.trim()
         if (!(name in chars)) {
@@ -90,7 +78,30 @@ function createCharacterForGroup(group) {
         }
         modal.style.display = "none"
         cleanup(group)
+
+        return false;
     }
+
+    // Prep closers
+    document.getElementById("modal-close").onclick = function() {
+        modal.style.display = "none"
+        cleanup(group)
+    }
+    
+    window.onclick = function(event) {
+    if (event.target == modal) {
+            modalForm.onsubmit = noop;
+            modal.style.display = "none";
+            cleanup(group)
+        }
+    }
+
+    // Show modal
+    modal.style.display = "block";
+}
+
+function noop(event) {
+    return false;
 }
 
 function createGroupNode(column) {
