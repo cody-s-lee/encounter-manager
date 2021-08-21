@@ -61,7 +61,9 @@ function createCharacterForGroup(group) {
     var nameInput = document.getElementById("modal-name-input")
     nameInput.value = ""
     var hpInput = document.getElementById("modal-hp-input")
+    hpInput.value = ""
     var initInput = document.getElementById("modal-init-input")
+    initInput.value = ""
 
     // Prep form submission
     modalForm.onsubmit = function(event) {
