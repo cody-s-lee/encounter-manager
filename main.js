@@ -159,12 +159,12 @@ function charToDiv(name, hp, init) {
     charNode.draggable = true
     charNode.ondragstart = drag
     charNode.textContent = "(" + init + ") " + name
-    charNode.data["hp"] = hp
+    charNode.dataset.hp = hp
 
     var hpNode = document.createElement("div")
     hpNode.id = name + "-hp"
     hpNode.className = "hp"
-    hpNode.innerText = charNode.data["hp"]
+    hpNode.innerText = charNode.dataset.hp
     charNode.appendChild(hpNode)
 
     return charNode
