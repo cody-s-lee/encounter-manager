@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+    <title>13th Age Encounter Manager</title>
+    <link rel="stylesheet" href="main.css"></link>
+  </head>
+  <body>
+    <div>
+        <h1>13th Age Encounter Manager</h1>
+        This is a simplification of the <a href='https://www.13thagesrd.com/combat-rules/#Position'>13th Age positioning rules</a>.
+    </div>
+
+    <!-- Party -- Far Behind Nearby Engaged Nearby Behind Far -- Enemies -->
+    <div id="field">
+        <div id="party-far" class="column party far">
+            <div class="header">Party Far</div>
+        </div>
+        <div id="party-behind" class="column party behind">
+            <div class="header">Behind</div>
+        </div>
+        <div id="party-nearby" class="column party nearby">
+            <div class="header">Nearby</div>
+        </div>
+        <div id="engaged" class="column engaged">
+            <div class="header">Engaged</div>
+        </div>
+        <div id="enemies-nearby" class="column enemies nearby">
+            <div class="header">Nearby</div>
+        </div>
+        <div id="enemies-behind" class="column enemies behind">
+            <div class="header">Behind</div>
+        </div>
+        <div id="enemies-far" class="column enemies far">
+            <div class="header">Far Enemies</div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="charname-modal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span id="modal-close" class="close">&times;</span>
+        <p>Character Name:</p>
+        <input id="modal-name-input"/>
+        <input id="modal-ok" type="button" value="OK"/>
+    </div>
+
+    </div>
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./main.js"></script>
+  </body>
+</html>
