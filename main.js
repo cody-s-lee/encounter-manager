@@ -183,7 +183,7 @@ function charToDiv(name, hp, init) {
         }
 
         charNode.dataset.hp = charNode.dataset.hp + delta
-        charNode.getElementById(charNode.id + "-hp").innerText = charNode.dataset.hp
+        document.getElementById(charNode.id + "-hp").innerText = charNode.dataset.hp
     }
     hpNode.appendChild(minusNode)
 
@@ -201,7 +201,7 @@ function charToDiv(name, hp, init) {
         }
 
         charNode.dataset.hp = charNode.dataset.hp + delta
-        charNode.getElementById(charNode.id + "-hp").innerText = charNode.dataset.hp
+        document.getElementById(charNode.id + "-hp").innerText = charNode.dataset.hp
     }
     hpNode.appendChild(plusNode)
 
