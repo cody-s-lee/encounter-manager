@@ -166,8 +166,12 @@ function charToDiv(name, hp, init) {
     var hpNode = document.createElement("div")
     hpNode.id = name + "-hp"
     hpNode.className = "hp"
-    hpNode.innerText = charNode.dataset.hp
-    charNode.appendChild(hpNode)
+
+    var hpDisplay = document.createElement("span")
+    hpDisplay.id = name + "-hp-display"
+    hpDisplay.innerHTML = hp
+
+    hpNode.appendChild(hpDisplay)
 
     var minusNode = document.createElement("input")
     minusNode.type = "button"
@@ -183,7 +187,7 @@ function charToDiv(name, hp, init) {
         }
 
         charNode.dataset.hp = (parseInt(charNode.dataset.hp) || 0) + delta
-        document.getElementById(charNode.id + "-hp").innerText = charNode.dataset.hp
+        document.getElementById(charNode.id + "-hp-display").innerText = charNode.dataset.hp
     }
     hpNode.appendChild(minusNode)
 
@@ -205,6 +209,6 @@ function charToDiv(name, hp, init) {
     }
     hpNode.appendChild(plusNode)
 
-
+    charNode.appendChild(hpNode)
     return charNode
 }
