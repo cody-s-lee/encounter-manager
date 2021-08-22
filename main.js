@@ -182,7 +182,7 @@ function charToDiv(name, hp, init) {
     minusNode.type = "button"
     minusNode.value = "-"
     minusNode.onclick = function(ev) {
-        var charNode = ev.target.parentNode.parentNode
+        var charNode = ev.target.parentNode.parentNode.parentNode
         var delta = -1
         if (ev.shiftKey) {
             delta = delta * 10
@@ -200,7 +200,7 @@ function charToDiv(name, hp, init) {
     zeroNode.type = "button"
     zeroNode.value = "0"
     zeroNode.onclick = function(ev) {
-        var charNode = ev.target.parentNode.parentNode
+        var charNode = ev.target.parentNode.parentNode.parentNode
         charNode.dataset.hp = 0
         document.getElementById(charNode.id + "-hp-display").innerText = charNode.dataset.hp
     }
@@ -210,7 +210,7 @@ function charToDiv(name, hp, init) {
     plusNode.type = "button"
     plusNode.value = "+"
     plusNode.onclick = function(ev) {
-        var charNode = ev.target.parentNode.parentNode
+        var charNode = ev.target.parentNode.parentNode.parentNode
         var delta = 1
         if (ev.shiftKey) {
             delta = delta * 10
