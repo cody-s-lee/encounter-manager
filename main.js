@@ -184,6 +184,9 @@ function charToDiv(name, hp, init) {
     minusNode.onclick = function(ev) {
         var charNode = ev.target.parentNode.parentNode.parentNode
         var delta = -1
+        if (ev.altKey) {
+            delta = delta * 5
+        }
         if (ev.shiftKey) {
             delta = delta * 10
         }
@@ -212,6 +215,9 @@ function charToDiv(name, hp, init) {
     plusNode.onclick = function(ev) {
         var charNode = ev.target.parentNode.parentNode.parentNode
         var delta = 1
+        if (ev.altKey) {
+            delta = delta * 5
+        }
         if (ev.shiftKey) {
             delta = delta * 10
         }
