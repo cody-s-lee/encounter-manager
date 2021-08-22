@@ -114,3 +114,11 @@ body {
     text-decoration: none;
     cursor: pointer;
   }
+
+  .hp {
+      width: 100%;
+  }
+  
+  .hpMods {
+      float:right;
+  }

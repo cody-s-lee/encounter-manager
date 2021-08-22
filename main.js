@@ -173,6 +173,11 @@ function charToDiv(name, hp, init) {
 
     hpNode.appendChild(hpDisplay)
 
+    var hpModNodes = document.createTextNode("span")
+    hpModNodes.className("hpMods")
+
+    hpNode.appendChild(hpModNodes)
+
     var minusNode = document.createElement("input")
     minusNode.type = "button"
     minusNode.value = "-"
@@ -189,7 +194,7 @@ function charToDiv(name, hp, init) {
         charNode.dataset.hp = (parseInt(charNode.dataset.hp) || 0) + delta
         document.getElementById(charNode.id + "-hp-display").innerText = charNode.dataset.hp
     }
-    hpNode.appendChild(minusNode)
+    hpModNodes.appendChild(minusNode)
 
     var zeroNode = document.createElement("input")
     zeroNode.type = "button"
@@ -199,7 +204,7 @@ function charToDiv(name, hp, init) {
         charNode.dataset.hp = 0
         document.getElementById(charNode.id + "-hp-display").innerText = charNode.dataset.hp
     }
-    hpNode.appendChild(zeroNode)
+    hpModNodes.appendChild(zeroNode)
 
     var plusNode = document.createElement("input")
     plusNode.type = "button"
@@ -217,7 +222,7 @@ function charToDiv(name, hp, init) {
         charNode.dataset.hp = (parseInt(charNode.dataset.hp) || 0) + delta
         document.getElementById(charNode.id + "-hp-display").innerText = charNode.dataset.hp
     }
-    hpNode.appendChild(plusNode)
+    hpModNodes.appendChild(plusNode)
 
     charNode.appendChild(hpNode)
     return charNode
