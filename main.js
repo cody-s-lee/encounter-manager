@@ -169,5 +169,42 @@ function charToDiv(name, hp, init) {
     hpNode.innerText = charNode.dataset.hp
     charNode.appendChild(hpNode)
 
+    var minusNode = document.createElement("input")
+    minusNode.type = "button"
+    minusNode.value = "-"
+    minusNode.onclick = function(ev) {
+        var charNode = ev.target.parent.parent
+        var delta = -1
+        if (ev.shiftKey) {
+            delta = delta * 10
+        }
+        if (ev.ctrlKey) {
+            delta = delta * 100
+        }
+
+        charNode.dataset.hp = charNode.dataset.hp + delta
+        charNode.getElementById(charNode.id + "-hp").innerText = charNode.dataset.hp
+    }
+    hpNode.appendChild(minusNode)
+
+    var plusNode = document.createElement("input")
+    plusNode.type = "button"
+    plusNode.value = "+"
+    plusNode.onclick = function(ev) {
+        var charNode = ev.target.parent.parent
+        var delta = 1
+        if (ev.shiftKey) {
+            delta = delta * 10
+        }
+        if (ev.ctrlKey) {
+            delta = delta * 100
+        }
+
+        charNode.dataset.hp = charNode.dataset.hp + delta
+        charNode.getElementById(charNode.id + "-hp").innerText = charNode.dataset.hp
+    }
+    hpNode.appendChild(plusNode)
+
+
     return charNode
 }
