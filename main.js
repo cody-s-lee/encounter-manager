@@ -174,7 +174,7 @@ function charToDiv(name, hp, init) {
     hpNode.appendChild(hpDisplay)
 
     var hpModNodes = document.createElement("span")
-    hpModNodes.className("hpMods")
+    hpModNodes.className = "hpMods"
 
     hpNode.appendChild(hpModNodes)
 
