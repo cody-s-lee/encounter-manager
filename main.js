@@ -205,7 +205,7 @@ function charToDiv(name, hp, init) {
         }
 
         charNode.dataset.hp = (parseInt(charNode.dataset.hp) || 0) + delta
-        document.getElementById(charNode.id + "-hp").innerText = charNode.dataset.hp
+        document.getElementById(charNode.id + "-hp-display").innerText = charNode.dataset.hp
     }
     hpNode.appendChild(plusNode)
 
