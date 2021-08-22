@@ -182,7 +182,7 @@ function charToDiv(name, hp, init) {
             delta = delta * 100
         }
 
-        charNode.dataset.hp = charNode.dataset.hp + delta
+        charNode.dataset.hp = (parseInt(charNode.dataset.hp) || 0) + delta
         document.getElementById(charNode.id + "-hp").innerText = charNode.dataset.hp
     }
     hpNode.appendChild(minusNode)
@@ -200,7 +200,7 @@ function charToDiv(name, hp, init) {
             delta = delta * 100
         }
 
-        charNode.dataset.hp = charNode.dataset.hp + delta
+        charNode.dataset.hp = (parseInt(charNode.dataset.hp) || 0) + delta
         document.getElementById(charNode.id + "-hp").innerText = charNode.dataset.hp
     }
     hpNode.appendChild(plusNode)
