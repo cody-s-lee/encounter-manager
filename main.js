@@ -191,6 +191,16 @@ function charToDiv(name, hp, init) {
     }
     hpNode.appendChild(minusNode)
 
+    var zeroNode = document.createElement("input")
+    zeroNode.type = "button"
+    zeroNode.value = "0"
+    zeroNode.onclick = function(ev) {
+        var charNode = ev.target.parentNode.parentNode
+        charNode.dataset.hp = 0
+        document.getElementById(charNode.id + "-hp-display").innerText = charNode.dataset.hp
+    }
+    hpNode.appendChild(zeroNode)
+
     var plusNode = document.createElement("input")
     plusNode.type = "button"
     plusNode.value = "+"
