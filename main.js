@@ -173,7 +173,7 @@ function charToDiv(name, hp, init) {
     minusNode.type = "button"
     minusNode.value = "-"
     minusNode.onclick = function(ev) {
-        var charNode = ev.target.parent.parent
+        var charNode = ev.target.parentNode.parentNode
         var delta = -1
         if (ev.shiftKey) {
             delta = delta * 10
@@ -191,7 +191,7 @@ function charToDiv(name, hp, init) {
     plusNode.type = "button"
     plusNode.value = "+"
     plusNode.onclick = function(ev) {
-        var charNode = ev.target.parent.parent
+        var charNode = ev.target.parentNode.parentNode
         var delta = 1
         if (ev.shiftKey) {
             delta = delta * 10
